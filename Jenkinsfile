@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "YOUR_DOCKERHUB_USERNAME/library-app"
+        DOCKER_IMAGE = "rohityadav0107/library-app"
     }
 
     stages {
 
         stage('Build') {
             steps {
-                git 'YOUR_GITHUB_REPO'
+                git 'https://github.com/RohitYadav07/library-app.git'
                 sh 'npm install'
                 sh 'npm run build'
             }
