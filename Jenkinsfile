@@ -9,7 +9,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                git 'https://github.com/RohitYadav07/library-app.git'
                 sh 'npm install'
                 sh 'npm run build'
             }
@@ -23,7 +22,7 @@ pipeline {
 
         stage('Docker') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh 'docker build -t $DOCKER_IMAGE:latest .'
                 sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
